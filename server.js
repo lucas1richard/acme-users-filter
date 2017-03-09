@@ -14,11 +14,9 @@ const hbs = exphbs.create({
   }
 });
 
-db.seed()
-  .then(() => db.models.Users.getMap())
-  .then(_map => { map = _map; })
-  .then(() => app.use('/', require('./controllers/')));
+db.seed();
 
+app.use('/', require('./controllers/'));
 
 const port = process.env.PORT || 3000;
 app.set('view engine', 'handlebars');
